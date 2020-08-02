@@ -3,6 +3,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/beginningLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/background_light"
@@ -30,151 +31,194 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintCircleRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:visibility="invisible" />
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/timerTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:background="@android:color/holo_green_light"
-        android:padding="10dp"
-        android:text="30 S"
-        android:textColor="#252525"
-        android:textSize="30sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/scoreTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
-        android:background="@android:color/holo_green_light"
-        android:padding="10dp"
-        android:text="1/2"
-        android:textAlignment="textEnd"
-        android:textColor="#252525"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/qnTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:background="@android:color/holo_orange_light"
-        android:padding="10dp"
-        android:text="99+99"
-        android:textAlignment="center"
-        android:textColor="#252525"
-        android:textSize="30sp"
-        android:textStyle="bold"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/gameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <androidx.gridlayout.widget.GridLayout
-        android:id="@+id/gameGridLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="16dp"
-        app:columnCount="2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/timerTextView"
-        app:rowCount="2">
-
-        <Button
-            android:id="@+id/button0"
+        <TextView
+            android:id="@+id/timerTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_row="0"
-            android:layout_rowWeight="1"
-            android:layout_column="0"
-            android:layout_columnWeight="1"
-            android:layout_margin="5dp"
-            android:background="#DD002C"
-            android:padding="15dp"
-            android:tag="0"
-            android:text="10"
-            android:textColor="#FFFFFF"
-            android:textSize="80sp"
-            app:layout_gravity="fill" />
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:background="@android:color/holo_green_light"
+            android:padding="10dp"
+            android:text="30 S"
+            android:textColor="#252525"
+            android:textSize="30sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.gridlayout.widget.GridLayout
+            android:id="@+id/gameGridLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="64dp"
+            android:layout_marginEnd="16dp"
+            app:columnCount="2"
+            app:columnOrderPreserved="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/timerTextView"
+            app:rowCount="2">
+
+            <Button
+                android:id="@+id/button0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="0"
+                android:layout_column="0"
+                android:layout_margin="5dp"
+                android:background="#DD002C"
+                android:onClick="findAnswer"
+                android:padding="15dp"
+                android:tag="0"
+                android:text="10"
+                android:textColor="#FFFFFF"
+                android:textSize="60sp"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_rowWeight="1" />
+
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="0"
+                android:layout_column="1"
+                android:layout_margin="5dp"
+                android:background="#FF6D00"
+                android:onClick="findAnswer"
+                android:padding="15dp"
+                android:tag="1"
+                android:text="10"
+                android:textColor="#FFFFFF"
+                android:textSize="60sp"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_rowWeight="1" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="1"
+                android:layout_column="0"
+                android:layout_margin="5dp"
+                android:background="#00C853"
+                android:onClick="findAnswer"
+                android:padding="15dp"
+                android:tag="2"
+                android:text="10"
+                android:textColor="#FFFFFF"
+                android:textSize="60sp"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_rowWeight="1" />
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="1"
+                android:layout_column="1"
+                android:layout_margin="5dp"
+                android:background="#2962FF"
+                android:onClick="findAnswer"
+                android:padding="15dp"
+                android:tag="3"
+                android:text="10"
+                android:textColor="#FFFFFF"
+                android:textSize="60sp"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_rowWeight="1" />
+
+
+        </androidx.gridlayout.widget.GridLayout>
 
         <Button
-            android:id="@+id/button1"
+            android:id="@+id/playAgainButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_row="0"
-            android:layout_rowWeight="1"
-            android:layout_column="1"
-            android:layout_columnWeight="1"
-            android:layout_margin="5dp"
-            android:background="#FF6D00"
-            android:padding="15dp"
-            android:tag="0"
-            android:text="10"
-            android:textColor="#FFFFFF"
-            android:textSize="80sp"
-            app:layout_gravity="fill" />
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:background="#64DD17"
+            android:onClick="playAgain"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="Play Again!"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/feedbackTextView" />
 
-        <Button
-            android:id="@+id/button2"
+        <TextView
+            android:id="@+id/qnTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_row="1"
-            android:layout_rowWeight="1"
-            android:layout_column="0"
-            android:layout_columnWeight="1"
-            android:layout_margin="5dp"
-            android:background="#00C853"
-            android:padding="15dp"
-            android:tag="0"
-            android:text="10"
-            android:textColor="#FFFFFF"
-            android:textSize="80sp"
-            app:layout_gravity="fill" />
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="32dp"
+            android:background="@android:color/holo_orange_light"
+            android:padding="10dp"
+            android:text="99+99"
+            android:textAlignment="center"
+            android:textColor="#252525"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/scoreTextView"
+            app:layout_constraintStart_toEndOf="@+id/timerTextView"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/button3"
+        <TextView
+            android:id="@+id/feedbackTextView"
+            android:layout_width="409dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="32dp"
+            android:background="#FFD600"
+            android:text="You're Correct!"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/playAgainButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gameGridLayout" />
+
+        <TextView
+            android:id="@+id/scoreTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_row="1"
-            android:layout_rowWeight="1"
-            android:layout_column="1"
-            android:layout_columnWeight="1"
-            android:layout_margin="5dp"
-            android:background="#2962FF"
-            android:padding="15dp"
-            android:tag="0"
-            android:text="10"
-            android:textColor="#FFFFFF"
-            android:textSize="80sp"
-            app:layout_gravity="fill" />
-
-
-    </androidx.gridlayout.widget.GridLayout>
-
-    <TextView
-        android:id="@+id/feedbackTextView"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="16dp"
-        android:text="You're Correct!"
-        android:textAlignment="center"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gameGridLayout" />
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:background="@android:color/holo_green_light"
+            android:padding="10dp"
+            android:text="1/2"
+            android:textAlignment="textEnd"
+            android:textColor="#252525"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
