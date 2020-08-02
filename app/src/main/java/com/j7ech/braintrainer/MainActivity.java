@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
     public void startGame(View view) {
         startButton.setVisibility(View.INVISIBLE);
         gameLayout.setVisibility(View.VISIBLE);
+        feedBackTextView.setText("Play!");
         timerStart();
         generateAnswer();
     }
@@ -118,6 +119,7 @@ public class MainActivity extends AppCompatActivity {
         button1.setClickable(false);
         button2.setClickable(false);
         button3.setClickable(false);
+        feedBackTextView.setText("Play!");
     }
 
     public void enabler() {
@@ -125,6 +127,7 @@ public class MainActivity extends AppCompatActivity {
         button1.setClickable(true);
         button2.setClickable(true);
         button3.setClickable(true);
+        feedBackTextView.setText("Play!");
     }
 
     public void playAgain(View view){
